@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>생명 세미나 자료</title>
+    <script src="../scripts/navbar.js"></script>
+</head>
+<body>
+    <script>
+        function displayFiles(files) {
+            var fileContainer = document.getElementById('file-container');
+            fileContainer.innerHTML = '';
+            if (files.length > 0) {
+                files.forEach(function (file) {
+                    if (file.endsWith('.pdf')) {
+                        var fileCard = document.createElement('div');
+                        fileCard.className = 'col-md-3 mb-3 d-flex';
+                        var cardBody = document.createElement('div');
+                        cardBody.className = 'card flex-fill file-card';
+                        var embed = document.createElement('embed');
+                        embed.src = categoryDir + file;
+                        embed.type = 'application/pdf';
+                        embed.style.height = '300px';
+                        var fileDescription = document.createElement('div');
+                        fileDescription.className = 'file-description mt-3 flex-grow-3';
+                        fileDescription.style.fontSize = '14px';
+                        fileDescription.style.height = '50px';
+                        fileDescription.textContent = 'No description available.';
+                        var downloadButton = document.createElement('button');
+                        downloadButton.className = 'btn btn-success';
+                        var downloadLink = document.createElement('a');
+                        downloadLink.href = 'download.php?file=' + encodeURIComponent(file) + '&category=' + encodeURIComponent(category);
+                        downloadLink.target = '_blank';
+                        downloadLink.textContent = '다운로드';
+                        downloadLink.className = 'text-white';
+                        downloadButton.appendChild(downloadLink);
+                        cardBody.appendChild(embed);
+                        cardBody.appendChild(fileDescription);
+                        cardBody.appendChild(downloadButton);
+                        fileCard.appendChild(cardBody);
+                        fileContainer.appendChild(fileCard);
+                    }
+                });
+            } else {
+                var noFilesMessage = document.createElement('p');
+                noFilesMessage.className = 'col-12 no-files-message';
+                noFilesMessage.textContent = 'No files to display.';
+                fileContainer.appendChild(noFilesMessage);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            var uploadDir = '../assets/data/uploads/';
+            var category = (new URLSearchParams(window.location.search)).get('category');
+            var categoryDir = uploadDir + category + '/';
+
+            if (category) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var response = JSON.parse(this.responseText);
+                        displayFiles(response);
+                    }
+                };
+                xhttp.open("GET", categoryDir + 'descriptions.json', true);
+                xhttp.send();
+            }
+        });
+    </script>
+    <script src="../scripts/pdfsize.js"></script>
+
+    <div class="container-fluid" style="margin-left:10%; margin-right:10%">
+        <br><br></br></br>
+        <div class="file-container row">
+            <div class="col-md-3 mb-3 d-flex">
+                <div class="card flex-fill file-card">
+                    <div class="card-body d-flex flex-column" id="file-card-body">
+                        <div class="file-title">
+                            <h5 class="card-title" style="text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 16px">
+                                GLOBE 바이오 플라스틱 프로젝트
+                            </h5>
+                        </div>
+                        <iframe src="../assets/data/uploads/생명/GLOBE%20바이오플라스틱%20프로젝트%20(실습).pdf" style="height:1000px;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <script src="../scripts/footer.js"></script>
+    </footer>
+</body>
+</html>

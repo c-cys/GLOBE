@@ -1,0 +1,50 @@
+body {
+    padding-top: 70px; /* Navbar의 높이만큼 여백 추가 */
+}
+
+nav.navbar {
+    z-index: 1000;
+}
+
+.file-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+    margin-bottom: 20px; /* 추가된 부분 */
+}
+
+.file-card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.file-description {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    height: 150px;
+}
+
+.no-files-message {
+    color: #777;
+    font-style: italic;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+#category {
+    width: 200px;
+}
+
+.page-title {
+    font-size: 24px;
+    color: #333;
+}
+#category {
+    max-width: 150px; /* Adjust the max-width as needed */
+}
+
+/* Adjust the width of the "선택" button */
+.btn-primary {
+    max-width: 100px; /* Adjust the max-width as needed */
+}

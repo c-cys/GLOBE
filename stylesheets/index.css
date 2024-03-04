@@ -1,0 +1,52 @@
+.header {
+    background-color: #fff;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.path {
+    fill: none;
+    /* stroke: #fff; */
+    stroke-width: 3px;
+}
+
+.path1 {
+    stroke: #000;
+    stroke-dasharray: 6884;
+    animation: drawPath1 1s linear, floating 2.2s linear infinite;
+}
+
+.content1 {
+    background-color: #000;
+}
+
+.path2 {
+    stroke: #fff;
+}
+
+.content2 {
+    background-color: #000;
+}
+
+.path3 {
+    stroke: #fff;
+}
+
+.content3 {
+    background-color: #000;
+}
+
+@keyframes drawPath1 {
+    0% {
+        stroke-dashoffset: 6884;
+    }
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes floating {
+    50% {
+        transform: translate3d(0, 40px, 0);
+    }
+}

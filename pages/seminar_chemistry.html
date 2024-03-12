@@ -8,11 +8,89 @@
     <script src="../scripts/navbar.js"></script>
 </head>
 <body>
-    <script src="../scripts/pdf_size.js">
-        file_list = ['화학실 시약 목록']
+    <br><br></br></br>
+    <script>
+        let file_list = ['화학실 시약 목록']
+        let file_directory = ['화학실%20시약%20목록.pdf']
+        let file_count = file_list.length;
+        let remainder = file_count%3;
+        let quotient = (file_count - remainder) / 3;
+
+        function find_name(n, file_list) {
+            return file_list[n-1];
+        }
+        function find_directory(n, file_directory) {
+            return '../assets/data/uploads/화학/'+file_directory[n-1];
+        }
+
+        var n = 0;
+        console.log('file_count', file_count)
+        console.log('remainder', remainder)
+        console.log('quotient', quotient)
+
+        // quotient
+        for (let i = 0; i < quotient; i++) {
+            document.write(`
+                <div class="container-fluid">
+                    <div class="file-container row">
+                `)
+            for (let j = 0; j < 3; j++) {
+                n += 1
+                document.write(`
+                            <div class="col-md-3 mb-3 d-flex">
+                                <div class="card flex-fill file-card">
+                                    <div class="card-body d-flex flex-column" id="file-card-body" style="height:540px">
+                                        <div class="file-title">
+                                            <h5 class="card-title" style="text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 16px">
+                                                `)
+                document.write(find_name(n, file_list))
+                document.write(`
+                                            </h5>
+                                        </div>
+                                        <iframe style="height:1000px" src=`)
+                document.write(find_directory(n, file_directory))
+                document.write(`></iframe>
+                                </div>
+                            </div>
+                        </div>
+                `)
+            }
+            document.write(`
+                    </div>
+                </div>`)
+        }
+
+        // remainder
+        document.write(`
+                <div class="container-fluid">
+                    <div class="file-container row">
+            `)
+        for (let k = 0; k < remainder; k++) {
+            n += 1
+            document.write(`
+                        <div class="col-md-3 mb-3 d-flex">
+                            <div class="card flex-fill file-card">
+                                <div class="card-body d-flex flex-column" id="file-card-body" style="height:540px">
+                                    <div class="file-title">
+                                        <h5 class="card-title" style="text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 16px">
+                                            `)
+            document.write(find_name(n, file_list))
+            document.write(`        </h5>
+                                    </div>
+                                    <iframe style="height:1000px" src=`)
+            document.write(find_directory(n, file_directory))
+            document.write(`        ></iframe>
+                                    </div>
+                                </div>
+                            </div>
+                `)
+        }
+        document.write(`
+                    </div>
+                </div>`)
     </script>
 
-<footer>
+    <footer>
         <script src="../scripts/footer.js"></script>
     </footer>
 </body>

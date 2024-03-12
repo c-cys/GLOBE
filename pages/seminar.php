@@ -105,6 +105,6 @@ $filesToDisplay = array_diff($uploadedFiles, ['.', '..']);
         <?php endif; ?>
     </div>
 </div>
-<script src="../scripts/pdf_size.js"></script>
+<script src="../scripts/view_pdf.js"></script>
 </body>
 </html>

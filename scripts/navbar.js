@@ -12,14 +12,7 @@ document.write(`
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" style="font-size:20px">
                 <li class="nav-item mx-2 dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown1" role="menubar" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        2024 활동 계획
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown1">
-                        <a class="dropdown-item" href="../pages/scheme_monthly.html">월간 일정</a>
-                        <a class="dropdown-item" href="../pages/scheme_internal.html">교내 활동</a>
-                        <a class="dropdown-item" href="../pages/scheme_external.html">교외 활동</a>
-                    </div>
+                    <a class="nav-link" href="../pages/monthly.html">2024 활동 계획</a>
                 </li>
                 
                 <li class="nav-item mx-2 dropdown">

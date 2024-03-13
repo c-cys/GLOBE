@@ -8,7 +8,7 @@
     <script src="../scripts/navbar.js"></script>
 </head>
 <body>
-    <br><br></br></br>
+    <br><br><br><br>
     <script>
         let file_list = ['화학실 시약 목록']
         let file_directory = ['화학실%20시약%20목록.pdf']
@@ -31,13 +31,14 @@
         // quotient
         for (let i = 0; i < quotient; i++) {
             document.write(`
+                <p></p>
                 <div class="container-fluid">
                     <div class="file-container row">
                 `)
             for (let j = 0; j < 3; j++) {
                 n += 1
                 document.write(`
-                            <div class="col-md-3 mb-3 d-flex">
+                            <div class="col-md-3 mb-3 d-flex" style="margin-left:6%">
                                 <div class="card flex-fill file-card">
                                     <div class="card-body d-flex flex-column" id="file-card-body" style="height:540px">
                                         <div class="file-title">
@@ -62,18 +63,30 @@
 
         // remainder
         document.write(`
+                <p></p>
                 <div class="container-fluid">
                     <div class="file-container row">
             `)
         for (let k = 0; k < remainder; k++) {
             n += 1
-            document.write(`
-                        <div class="col-md-3 mb-3 d-flex">
+            if (remainder == 1) {
+                document.write(`
+                        <div class="col-md-3 mb-3 d-flex" style="margin-left:37%">
                             <div class="card flex-fill file-card">
                                 <div class="card-body d-flex flex-column" id="file-card-body" style="height:540px">
                                     <div class="file-title">
                                         <h5 class="card-title" style="text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 16px">
                                             `)
+            }
+            if (remainder == 2) {
+                document.write(`
+                        <div class="col-md-3 mb-3 d-flex" style="margin-left:16%">
+                            <div class="card flex-fill file-card">
+                                <div class="card-body d-flex flex-column" id="file-card-body" style="height:540px">
+                                    <div class="file-title">
+                                        <h5 class="card-title" style="text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 16px">
+                                            `)
+            }
             document.write(find_name(n, file_list))
             document.write(`        </h5>
                                     </div>
@@ -87,7 +100,9 @@
         }
         document.write(`
                     </div>
-                </div>`)
+                </div>
+                <p></p>
+        `)
     </script>
 
     <footer>

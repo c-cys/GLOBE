@@ -14,7 +14,7 @@ document.write(`
             <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav" style="font-size:20px">
                 <li class="nav-item mx-2 dropdown">
-                    <a class="nav-link" href="../pages/monthly.html">2024 활동 계획</a>
+                    <a class="nav-link" href="../pages/calendar.html">2024 활동 계획</a>
                 </li>
                 
                 <li class="nav-item mx-2 dropdown">
